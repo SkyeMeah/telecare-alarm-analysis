@@ -28,11 +28,48 @@ Documented at the bottom of `analysis.py`. Even on synthetic data, two of the pa
 
 ## Running it
 
+I'm trying to follow good Python practice from the start, which means using a **virtual environment** so this project's dependencies don't clash with anything else on my machine. If you've never done this before, the steps are below — it takes about a minute.
+
+### 1. Create and activate a virtual environment
+
+A virtual environment ("venv") is just an isolated copy of Python that lives inside the project folder. Anything you `pip install` while it's active only affects this project, which keeps your global Python install tidy.
+
+**macOS / Linux:**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+**Windows (PowerShell):**
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
+You'll know it worked when your terminal prompt shows `(.venv)` at the start of the line.
+
+### 2. Install the dependencies
+
 ```bash
 pip install -r requirements.txt
-python generate_data.py
-python analysis.py
 ```
+
+### 3. Run the project
+
+```bash
+python generate_data.py   # produces data/alarms.csv
+python analysis.py        # produces the four charts in figures/ and prints a summary
+```
+
+### 4. When you're done
+
+```bash
+deactivate
+```
+
+This drops you back out of the venv. The next time you come back to the project, just re-run the activate command from step 1 — you don't need to reinstall the dependencies.
 
 Charts are written to `figures/`.
 
